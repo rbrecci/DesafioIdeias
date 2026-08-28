@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propostas de Solução — Top 3 Demandas Fáceis</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --panel-2:#f0f2f5; --line:#dfe3e8;
+    --tx:#14181d; --tx-dim:#5b6572; --tx-faint:#8a94a1;
+    --accent:#0f62d6; --easy:#0d8a5f; --int:#b4530a; --warn:#b4530a; --risk:#c2410c;
+    --shadow:0 1px 2px rgba(16,24,40,.05),0 6px 20px rgba(16,24,40,.06);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0e1116; --panel:#161a21; --panel-2:#1d222b; --line:#2a313c;
+      --tx:#e8ecf1; --tx-dim:#9aa5b4; --tx-faint:#6d7887;
+      --accent:#6ea8ff; --easy:#4bd39a; --int:#ffb26b; --warn:#ffb26b; --risk:#ff9a6b;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--tx);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:28px 20px 90px}
+  a{color:var(--accent)}
+
+  .eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tx-faint);font-weight:700}
+  h1{font-size:clamp(24px,3.4vw,33px);line-height:1.15;margin:8px 0 8px;letter-spacing:-.02em}
+  .lead{color:var(--tx-dim);max-width:72ch;margin:0}
+
+  .toc{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:16px 18px;margin:24px 0 34px}
+  .toc h2{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-faint);margin:0 0 10px}
+  .toc ol{margin:0;padding-left:20px}
+  .toc li{margin:5px 0}
+  .toc a{text-decoration:none;font-weight:600}
+  .toc a:hover{text-decoration:underline}
+  .toc .who{color:var(--tx-faint);font-weight:400;font-size:13px}
+
+  .callout{background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:13px 16px;margin:22px 0;font-size:14px;color:var(--tx-dim)}
+  .callout strong{color:var(--tx)}
+
+  article{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+    padding:26px 26px 30px;margin:0 0 26px}
+  article > header{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
+  .num{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--easy);background:color-mix(in srgb,var(--easy) 14%,transparent);
+    border:1px solid color-mix(in srgb,var(--easy) 35%,transparent);border-radius:999px;padding:3px 10px}
+  article h2{font-size:22px;line-height:1.2;margin:11px 0 4px;letter-spacing:-.015em}
+  .solname{color:var(--accent);font-weight:750}
+  .whofor{color:var(--tx-dim);font-size:13.5px;margin:6px 0 0}
+  .whofor .sep{color:var(--tx-faint);margin:0 7px}
+
+  h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-faint);
+    margin:26px 0 9px;font-weight:700}
+  h3:first-of-type{margin-top:0}
+  p{margin:0 0 11px}
+  ul{margin:0 0 11px;padding-left:20px}
+  li{margin:5px 0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;
+    background:var(--panel-2);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+
+  .tbl{overflow-x:auto;margin:0 0 12px}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tx-faint);font-weight:700;
+    background:var(--panel-2)}
+  tr:last-child td{border-bottom:0}
+  td b{font-weight:650}
+
+  .split{display:grid;gap:14px}
+  @media(min-width:700px){.split{grid-template-columns:1fr 1fr}}
+  .box{background:var(--panel-2);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .box h4{margin:0 0 7px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--tx-faint)}
+  .box.in h4{color:var(--easy)} .box.out h4{color:var(--risk)}
+  .box ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--tx-dim)}
+
+  .risk{border-left:3px solid var(--risk)}
+  .risk h4{color:var(--risk)}
+
+  .demo{background:color-mix(in srgb,var(--accent) 8%,transparent);
+    border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);
+    border-radius:11px;padding:14px 16px;font-size:14px}
+  .demo h4{margin:0 0 6px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .demo p{margin:0;color:var(--tx-dim)}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--tx-faint);font-size:12.5px;max-width:80ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Desafio Ideias · SAGA SENAI de Inovação</div>
+  <h1>Propostas de solução para as três demandas mais fáceis</h1>
+  <p class="lead">Recorte técnico, escopo de MVP, modelo de dados, plano de sprints e riscos para as três demandas de TI em SP com maior nota de facilidade. Cada proposta é dimensionada para um semestre de projeto integrador.</p>
+</header>
+
+<nav class="toc">
+  <h2>Nesta página</h2>
+  <ol>
+    <li><a href="#p1">AtivoLab — Gestão de Laboratórios e Ativos</a> <span class="who">· W K Soluções Industriais</span></li>
+    <li><a href="#p2">CTI Insights — Análise de Dados Comerciais</a> <span class="who">· Provedor CTI</span></li>
+    <li><a href="#p3">RegistrAtiv — Registro de Atividades Funcionais</a> <span class="who">· W K Soluções Industriais</span></li>
+  </ol>
+</nav>
+
+<div class="callout">
+  <strong>Observação estratégica.</strong> As demandas 1 e 3 são da mesma empresa e compartilham as mesmas entidades de base — colaborador, setor, trilha de auditoria e controle de acesso por papel. Um time que pegar as duas pode entregá-las como dois módulos de uma plataforma única, economizando a fundação inteira do segundo projeto. Se forem times diferentes, vale ao menos combinar o mesmo modelo de dados.
+</div>
+
+<!-- ============ 1 ============ -->
+<article id="p1">
+  <header>
+    <span class="num">Facilidade 9 · Interesse 5</span>
+    <h2><span class="solname">AtivoLab</span> — inventário rastreável com etiqueta QR e ordens de serviço</h2>
+    <p class="whofor">Demanda 12569<span class="sep">·</span>W K Soluções Industriais<span class="sep">·</span>Escola SENAI Engº Octávio Marcondes Ferraz<span class="sep">·</span>ativa até 05/04/2027</p>
+  </header>
+
+  <h3>O problema, em uma frase</h3>
+  <p>O controle de equipamentos e ordens de serviço vive em anotações físicas, e ninguém consegue responder rápido onde está um ativo, qual seu histórico de manutenção, qual o número de patrimônio e quem é o setor responsável.</p>
+
+  <h3>A ideia central</h3>
+  <p>A demanda parece pedir um CRUD, mas a dor descrita é de <b>tempo de consulta</b> — os colaboradores relatam demora para encontrar registros. Então o coração da solução não é a tela de cadastro: é a <b>etiqueta QR colada no equipamento</b>. Apontar a câmera do celular abre a ficha completa do ativo, e movimentar entre setores é escanear e escolher o destino. É isso que transforma o sistema de "mais um cadastro para preencher" em algo que as pessoas realmente usam.</p>
+  <p>O segundo pilar é a <b>trilha append-only</b>: nenhuma movimentação ou mudança de status é editada ou apagada, apenas acrescentada. Rastreabilidade deixa de ser promessa e vira propriedade da estrutura de dados.</p>
+
+  <h3>Escopo</h3>
+  <div class="split">
+    <div class="box in">
+      <h4>Entra no MVP</h4>
+      <ul>
+        <li>Cadastro de ativos com patrimônio, categoria, número de série, foto e setor atual</li>
+        <li>Importação da planilha ou lista atual da empresa via CSV</li>
+        <li>Geração de etiquetas QR em lote, prontas para impressão em folha A4</li>
+        <li>Ficha do ativo por leitura de QR no celular</li>
+        <li>Movimentação entre setores com responsável e data</li>
+        <li>Ordens de serviço com ciclo de vida, anexos e histórico</li>
+        <li>Painel e exportação CSV/PDF</li>
+      </ul>
+    </div>
+    <div class="box out">
+      <h4>Fica de fora, deliberadamente</h4>
+      <ul>
+        <li>Manutenção preditiva e sensores IoT</li>
+        <li>Integração com ERP ou sistema de patrimônio existente</li>
+        <li>Aplicativo nativo — PWA resolve com uma fração do custo</li>
+        <li>Controle de depreciação contábil</li>
+        <li>Reserva e agendamento de uso de laboratório</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Modelo de dados</h3>
+  <div class="tbl"><table>
+    <tr><th>Entidade</th><th>Campos que importam</th><th>Por quê</th></tr>
+    <tr><td><b>Ativo</b></td><td>patrimônio, nome, categoria, nº série, fabricante, modelo, aquisição, status, setor atual, local, foto</td><td>Responde as perguntas listadas na demanda</td></tr>
+    <tr><td><b>Setor</b> / <b>Local</b></td><td>nome, responsável, hierarquia</td><td>Fluxo entre setores é a dor citada</td></tr>
+    <tr><td><b>Colaborador</b></td><td>matrícula, nome, setor, papel</td><td>Quem movimentou, quem executou</td></tr>
+    <tr><td><b>Movimentação</b></td><td>ativo, origem, destino, responsável, data, observação</td><td>Append-only: é o histórico de localização</td></tr>
+    <tr><td><b>Ordem de Serviço</b></td><td>ativo, tipo, abertura, prazo, prioridade, status, solicitante, executor, descrição, solução, custo</td><td>Ciclo de manutenção com prestação de contas</td></tr>
+    <tr><td><b>Evento de auditoria</b></td><td>entidade, campo, valor anterior, valor novo, autor, timestamp</td><td>Rastreabilidade exigida na demanda</td></tr>
+  </table></div>
+  <p>Duas regras de negócio que valem mais que dez telas: ativo com status <code>em_manutencao</code> não pode ser movimentado, e abrir uma OS altera automaticamente o status do ativo. Elas evitam a divergência entre documentos que a empresa reclama hoje.</p>
+
+  <h3>Stack recomendada</h3>
+  <p><b>Django + Django REST Framework + PostgreSQL + HTMX.</b> O Django Admin entrega boa parte do CRUD administrativo de graça, o que libera o semestre para o que diferencia: QR, movimentação e relatórios. Etiquetas com a biblioteca <code>qrcode</code>, leitura no navegador com <code>html5-qrcode</code>, PDF com WeasyPrint, empacotado como PWA para instalar no celular.</p>
+  <p><b>Atenção técnica que costuma pegar times desprevenidos:</b> a API de câmera do navegador só funciona em contexto seguro. Em produção exige HTTPS com certificado válido; em desenvolvimento, <code>localhost</code> funciona, mas testar pelo IP da rede local não. Resolva a hospedagem com TLS na primeira sprint, não na véspera da entrega.</p>
+
+  <h3>Plano de sprints</h3>
+  <div class="tbl"><table>
+    <tr><th>Sprint</th><th>Entrega</th><th>Demonstrável ao fim</th></tr>
+    <tr><td><b>1</b></td><td>Modelo de dados, cadastros, autenticação por papel, importação CSV da base atual</td><td>Base real da empresa já dentro do sistema</td></tr>
+    <tr><td><b>2</b></td><td>Geração de etiquetas QR, ficha do ativo por scan, movimentação entre setores</td><td>Escanear um equipamento e ver a ficha no celular</td></tr>
+    <tr><td><b>3</b></td><td>Ordens de serviço completas, anexos, histórico, auditoria</td><td>Abrir, atribuir e concluir uma OS</td></tr>
+    <tr><td><b>4</b></td><td>Painel, relatórios, exportação, hardening e documentação</td><td>Produto entregável</td></tr>
+  </table></div>
+
+  <h3>Riscos</h3>
+  <div class="box risk">
+    <h4>O que pode dar errado</h4>
+    <ul>
+      <li><b>Escopo inflar</b> para preditiva e IoT. Trate como roadmap escrito, não como entrega.</li>
+      <li><b>A empresa não entregar a base atual.</b> Peça na primeira reunião; se não vier até a sprint 2, gere dados sintéticos plausíveis e siga.</li>
+      <li><b>HTTPS deixado para o fim</b>, quebrando a leitura de QR na apresentação.</li>
+    </ul>
+  </div>
+
+  <div class="demo" style="margin-top:16px">
+    <h4>Como demonstrar na banca</h4>
+    <p>Imprima etiquetas de verdade e cole em três objetos da sala. Escaneie um ao vivo, movimente-o para outro setor e abra uma ordem de serviço na frente dos avaliadores. Um sistema tocável vale mais que qualquer slide de arquitetura.</p>
+  </div>
+
+  <h3>Métricas de sucesso</h3>
+  <ul>
+    <li>Tempo para localizar um ativo: de minutos de busca em papel para uma leitura de QR</li>
+    <li>Percentual de ativos com histórico de movimentação completo</li>
+    <li>Número de divergências encontradas no primeiro inventário conferido pelo sistema</li>
+    <li>Tempo médio de fechamento de ordem de serviço</li>
+  </ul>
+</article>
+
+<!-- ============ 2 ============ -->
+<article id="p2">
+  <header>
+    <span class="num">Facilidade 9 · Interesse 5</span>
+    <h2><span class="solname">CTI Insights</span> — pipeline reprodutível e mapa de oportunidades comerciais</h2>
+    <p class="whofor">Demanda 12460<span class="sep">·</span>Provedor CTI<span class="sep">·</span>Escola SENAI de Informática<span class="sep">·</span>ativa até 12/03/2027</p>
+  </header>
+
+  <h3>O problema, em uma frase</h3>
+  <p>A carteira comercial existe em Excel — consultor, código do cliente, segmento, nível A/B/C, faixa de faturamento e serviços contratados — mas nunca foi explorada analiticamente, e a empresa quer usar o projeto para plantar sua área de ciência de dados.</p>
+
+  <h3>A ideia central</h3>
+  <p>Essa última frase da demanda muda tudo. A empresa não pediu um gráfico: pediu o <b>começo de uma capacidade interna</b>. Então o entregável não é um dashboard bonito, é um <b>processo reprodutível</b> que continua funcionando quando o time do projeto for embora — pipeline versionado, dicionário de dados e documentação do método.</p>
+  <p>Regra de ouro do projeto: <b>ninguém edita o Excel na mão</b>. Toda limpeza acontece em código, o arquivo original permanece intocado, e rodar o pipeline de novo com uma planilha atualizada reproduz todos os resultados com um comando.</p>
+
+  <h3>Arquitetura em três camadas</h3>
+  <div class="tbl"><table>
+    <tr><th>Camada</th><th>O que é</th><th>Entregável</th></tr>
+    <tr><td><b>1. Pipeline</b></td><td>Script versionado que lê o Excel, perfila, limpa, padroniza e grava a base tratada</td><td>Repositório Git, base em Parquet, relatório de qualidade dos dados</td></tr>
+    <tr><td><b>2. Análise</b></td><td>Cinco perguntas de negócio respondidas sobre a base tratada</td><td>Notebooks documentados com conclusões</td></tr>
+    <tr><td><b>3. Consumo</b></td><td>Painel com filtros e uma lista acionável de oportunidades</td><td>Dashboard e CSV que o comercial usa na segunda-feira</td></tr>
+  </table></div>
+
+  <h3>Tratamento dos dados</h3>
+  <ul>
+    <li><b>Relatório de qualidade primeiro.</b> Percentual de nulos por coluna, duplicatas, categorias fora do domínio, outliers de faturamento. Esse relatório é a primeira entrega e serve para negociar escopo com a empresa antes de prometer qualquer análise.</li>
+    <li><b>Padronização de segmento.</b> O mesmo segmento provavelmente aparece escrito de várias formas. Construa um de-para e leve para a empresa validar — decisão de negócio, não de código.</li>
+    <li><b>Faixa de faturamento como variável ordinal</b>, preservando a ordem das faixas para permitir comparação.</li>
+    <li><b>Serviços contratados em formato longo.</b> Explodir a lista de serviços em uma linha por cliente-serviço é o passo que destrava a análise de cesta. Sem isso, nada de cross-sell.</li>
+  </ul>
+
+  <h3>As cinco perguntas</h3>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>Pergunta</th><th>Técnica</th><th>Ação que gera</th></tr>
+    <tr><td>1</td><td>Quanto do faturamento depende de poucos clientes ou segmentos?</td><td>Curva de Pareto, índice de concentração</td><td>Mapa de risco de dependência</td></tr>
+    <tr><td>2</td><td>Como estão distribuídas as carteiras entre consultores?</td><td>Agregação, mix A/B/C, serviços por cliente</td><td>Rebalanceamento de carteira</td></tr>
+    <tr><td>3</td><td>Quais serviços são contratados juntos?</td><td>Co-ocorrência e regras de associação (Apriori)</td><td>Lista de cross-sell priorizada</td></tr>
+    <tr><td>4</td><td>O que distingue um cliente A de um C, além do faturamento?</td><td>Perfilamento comparativo por segmento e serviço</td><td>Critério de qualificação de prospect</td></tr>
+    <tr><td>5</td><td>Onde há segmento de alto faturamento com baixa penetração?</td><td>Cruzamento cobertura × porte</td><td>Alvo de prospecção</td></tr>
+  </table></div>
+  <p>A pergunta 3 é a que rende o entregável mais concreto do projeto: uma lista do tipo <i>"este cliente tem os serviços A e B mas não tem C, e 78% dos clientes de perfil semelhante têm C"</i>. Isso é uma fila de ligações, não um gráfico.</p>
+
+  <h3>Stack recomendada</h3>
+  <p><b>Python + pandas + mlxtend</b> para as regras de associação, <b>Plotly</b> para os gráficos e <b>Streamlit</b> para o painel. Se a empresa já é ambiente Microsoft, entregue o painel em <b>Power BI</b> — adoção vence elegância. Tudo versionado em Git, com o pipeline executável por um único comando.</p>
+
+  <h3>Plano de sprints</h3>
+  <div class="tbl"><table>
+    <tr><th>Sprint</th><th>Entrega</th><th>Demonstrável ao fim</th></tr>
+    <tr><td><b>1</b></td><td>Perfilamento e relatório de qualidade, reunião de validação do de-para com a empresa</td><td>Diagnóstico honesto da base</td></tr>
+    <tr><td><b>2</b></td><td>Pipeline de limpeza reprodutível, base tratada, dicionário de dados</td><td>Um comando regenera tudo</td></tr>
+    <tr><td><b>3</b></td><td>As cinco análises, validadas com o gestor comercial</td><td>Conclusões com significado de negócio</td></tr>
+    <tr><td><b>4</b></td><td>Painel, lista de oportunidades, documentação do método</td><td>Capacidade que fica na empresa</td></tr>
+  </table></div>
+
+  <h3>Riscos</h3>
+  <div class="box risk">
+    <h4>O que pode dar errado</h4>
+    <ul>
+      <li><b>Prometer modelo preditivo.</b> A base é uma carteira de clientes, provavelmente com poucas centenas de linhas — não sustenta machine learning sério. Entregue análise descritiva robusta e coloque o preditivo como próximo passo. Prometer e não entregar custa mais caro que não prometer.</li>
+      <li><b>Planilha muito mais suja que o descrito.</b> É exatamente para isso que o relatório de qualidade vem na sprint 1.</li>
+      <li><b>LGPD.</b> São dados de clientes reais. Use o código interno em vez de razão social e pseudonimize tudo que for para slide ou repositório público.</li>
+    </ul>
+  </div>
+
+  <div class="demo" style="margin-top:16px">
+    <h4>Como demonstrar na banca</h4>
+    <p>Rode o pipeline ao vivo a partir do Excel bruto e mostre a base tratada nascendo. Depois abra o painel e termine exportando a lista de oportunidades de cross-sell — o momento em que a análise vira dinheiro na mesa do comercial.</p>
+  </div>
+
+  <h3>Métricas de sucesso</h3>
+  <ul>
+    <li>Número de oportunidades de cross-sell aceitas pelo time comercial</li>
+    <li>Redução percentual de registros inconsistentes entre a base bruta e a tratada</li>
+    <li>Tempo para gerar um relatório gerencial: de horas de planilha para um clique</li>
+    <li>O pipeline roda em outra máquina, por outra pessoa, sem ajuda do time — teste real de reprodutibilidade</li>
+  </ul>
+</article>
+
+<!-- ============ 3 ============ -->
+<article id="p3">
+  <header>
+    <span class="num">Facilidade 9 · Interesse 4</span>
+    <h2><span class="solname">RegistrAtiv</span> — registro de ocorrências funcionais com validação e prestação de contas</h2>
+    <p class="whofor">Demanda 12570<span class="sep">·</span>W K Soluções Industriais<span class="sep">·</span>Escola SENAI Engº Octávio Marcondes Ferraz<span class="sep">·</span>ativa até 05/04/2027</p>
+  </header>
+
+  <h3>O problema, em uma frase</h3>
+  <p>Substituições, coberturas de horário e atividades extraordinárias são combinadas por WhatsApp e e-mail, o que impede consultar histórico, confirmar responsáveis e consolidar relatórios de prestação de contas.</p>
+
+  <h3>A ideia central</h3>
+  <p>Também parece um CRUD, mas dois requisitos da demanda impedem que seja só isso: <b>reduzir falhas de comunicação</b> e <b>permitir prestação de contas</b>. Um formulário isolado não resolve nenhum dos dois. O que resolve é um <b>fluxo de duas pontas</b> — quem registra e o gestor que valida — somado a um <b>registro imutável após validação</b>.</p>
+  <p>Depois de validada, a ocorrência não é editável nem removível. Correção só existe como nova ocorrência de retificação, vinculada à original. É essa propriedade que transforma o sistema em fonte confiável para prestação de contas, e é barata de implementar se estiver no desenho desde o início.</p>
+  <p>O terceiro pilar é velocidade de registro. <b>Se registrar levar mais de um minuto no celular, o time volta para o WhatsApp e o projeto morre.</b> Trate o tempo de preenchimento como requisito não funcional medido, não como detalhe de interface.</p>
+
+  <h3>Modelo de dados</h3>
+  <div class="tbl"><table>
+    <tr><th>Entidade</th><th>Campos que importam</th><th>Por quê</th></tr>
+    <tr><td><b>Colaborador</b></td><td>matrícula, nome, setor, função, e-mail, papel</td><td>Executor, substituído e validador</td></tr>
+    <tr><td><b>Tipo de atividade</b></td><td>nome, exige substituído, exige anexo</td><td>Substituição, cobertura, apoio: configurável, nunca fixo no código</td></tr>
+    <tr><td><b>Ocorrência</b></td><td>tipo, executor, substituído, data, hora início/fim, setor, contexto, tarefas, status, quem registrou, quem validou, motivo de rejeição</td><td>Cobre exatamente os campos citados na demanda</td></tr>
+    <tr><td><b>Retificação</b></td><td>ocorrência original, ocorrência corretiva, justificativa</td><td>Correção sem destruir o histórico</td></tr>
+    <tr><td><b>Log de auditoria</b></td><td>entidade, ação, autor, timestamp, payload</td><td>Rastreabilidade, append-only</td></tr>
+  </table></div>
+
+  <h3>Validações que combatem a falha de comunicação</h3>
+  <ul>
+    <li>Bloquear sobreposição de horário para o mesmo executor no mesmo dia</li>
+    <li>Alertar quando o substituído aparecer como presente no mesmo intervalo</li>
+    <li>Exigir justificativa em registro retroativo além do prazo configurado</li>
+    <li>Impedir data futura além do limite definido pela organização</li>
+  </ul>
+  <p>Cada uma dessas regras é uma discussão que hoje acontece por mensagem e some. Codificá-las é o que gera valor real acima de um formulário.</p>
+
+  <h3>Funcionalidades do MVP</h3>
+  <ul>
+    <li>Registro em quatro campos no celular, com valores pré-preenchidos do último lançamento</li>
+    <li>Fila de validação do gestor, com aprovação em lote</li>
+    <li>Notificação por e-mail no registro e na validação</li>
+    <li>Relatórios por colaborador, setor, período e tipo, com total de horas de cobertura</li>
+    <li>Exportação em CSV e PDF com data de emissão, para prestação de contas</li>
+    <li>API REST documentada em OpenAPI — atende o benefício de integração futura pedido pela empresa e custa pouco quando o backend já é DRF</li>
+  </ul>
+
+  <h3>Ponto a esclarecer com a empresa</h3>
+  <div class="callout" style="margin-top:0">
+    <strong>O vocabulário da demanda cita "disciplina" e "cobertura de horário".</strong> Isso sugere contexto de instituição de ensino, e não de chão de fábrica. Confirme na primeira reunião: se for escola, o campo de contexto vira turma e disciplina, e o relatório precisa fechar por período letivo. É a pergunta que mais muda o desenho, então faça-a antes de escrever a primeira migration.
+  </div>
+
+  <h3>Stack recomendada</h3>
+  <p>Mesma base do AtivoLab — <b>Django + DRF + PostgreSQL + PWA</b> — deliberadamente. Se o mesmo time pegar as duas demandas da W K, colaborador, setor, autenticação por papel e trilha de auditoria são construídos uma vez e reaproveitados, e o segundo projeto começa com a fundação pronta.</p>
+
+  <h3>Plano de sprints</h3>
+  <div class="tbl"><table>
+    <tr><th>Sprint</th><th>Entrega</th><th>Demonstrável ao fim</th></tr>
+    <tr><td><b>1</b></td><td>Cadastros base, autenticação, papéis, tipos de atividade configuráveis</td><td>Fundação com dados reais da organização</td></tr>
+    <tr><td><b>2</b></td><td>Registro no celular e validações de conflito de horário</td><td>Registrar uma ocorrência em menos de um minuto</td></tr>
+    <tr><td><b>3</b></td><td>Fluxo de validação, notificações, imutabilidade e retificação</td><td>Ciclo completo registro → validação</td></tr>
+    <tr><td><b>4</b></td><td>Relatórios, exportação assinada, API documentada</td><td>Produto entregável</td></tr>
+  </table></div>
+
+  <h3>Riscos</h3>
+  <div class="box risk">
+    <h4>O que pode dar errado</h4>
+    <ul>
+      <li><b>Adoção.</b> É o risco dominante deste projeto, não a tecnologia. Meça o tempo de preenchimento com usuários reais na sprint 2 e otimize até ficar abaixo de um minuto.</li>
+      <li><b>LGPD.</b> Jornada e alocação são dados pessoais de colaboradores. Minimize campos, restrinja acesso por papel e defina prazo de retenção.</li>
+      <li><b>Confusão com ponto eletrônico.</b> Deixe explícito, na documentação e na interface, que o sistema registra atividades funcionais e <b>não substitui o controle legal de jornada</b>. Sem esse aviso, o projeto entra sem querer em terreno regulatório de registro de ponto.</li>
+    </ul>
+  </div>
+
+  <div class="demo" style="margin-top:16px">
+    <h4>Como demonstrar na banca</h4>
+    <p>Registre uma ocorrência pelo celular na frente dos avaliadores, mostre a notificação chegando na tela do gestor em outro dispositivo, valide, e emita o PDF de prestação de contas na hora. Depois tente editar a ocorrência já validada e mostre o sistema recusando — é a prova visível de que a rastreabilidade é real.</p>
+  </div>
+
+  <h3>Métricas de sucesso</h3>
+  <ul>
+    <li>Tempo mediano de preenchimento de uma ocorrência</li>
+    <li>Percentual de ocorrências registradas no sistema em vez de por mensagem</li>
+    <li>Tempo entre registro e validação pelo gestor</li>
+    <li>Tempo para emitir o relatório mensal de prestação de contas</li>
+  </ul>
+</article>
+
+<footer>
+  <p>Demandas 12569, 12460 e 12570 extraídas da plataforma SAGA SENAI de Inovação em 28/08/2026 (Área de Atuação = Tecnologia da Informação, Estado = SP). Contexto, benefícios esperados e detalhamento são da própria plataforma; recorte de solução, arquitetura, plano de sprints, riscos e métricas são proposta técnica deste documento e não representam posição da SENAI ou das empresas demandantes.</p>
+</footer>
+
+</div>
+</body>
+</html>

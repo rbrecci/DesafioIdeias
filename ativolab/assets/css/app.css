@@ -1,0 +1,28 @@
+/* AtivoLab - ajustes por cima do Bootstrap. Mantido curto de proposito:
+   quase tudo e resolvido com utilitarios do proprio Bootstrap. */
+
+.cursor-pointer { cursor: pointer; }
+
+/* Linha do tempo do historico de movimentacao */
+.linha-tempo li {
+  position: relative;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--bs-border-color);
+}
+.linha-tempo li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: .45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bs-primary);
+}
+.linha-tempo li:last-child { border-left-color: transparent; padding-bottom: 0 !important; }
+
+/* Leitor de QR: o html5-qrcode injeta um video que precisa caber no card */
+#leitor video { width: 100% !important; height: auto !important; display: block; }
+#leitor img { display: none; }
+
+code { font-size: .875em; }

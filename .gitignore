@@ -1,0 +1,17 @@
+# Configuracao com senha de banco - nunca versionar
+ativolab/config/config.php
+
+# Uploads enviados pelos usuarios
+ativolab/storage/uploads/*
+!ativolab/storage/uploads/.htaccess
+!ativolab/storage/uploads/.gitkeep
+
+# Sistema operacional e editores
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log

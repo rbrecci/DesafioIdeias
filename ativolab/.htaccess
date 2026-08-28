@@ -1,0 +1,15 @@
+# AtivoLab — raiz publica (conteudo de htdocs)
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<FilesMatch "\.(sql|md|log|ini)$">
+  Require all denied
+</FilesMatch>
