@@ -105,7 +105,7 @@ $v      = static fn (string $campo, string $padrao = ''): string
             <?php foreach ($setores as $s) : ?>
               <option value="<?= (int) $s['id'] ?>"
                 <?= (string) ($ativo['setor_id'] ?? '') === (string) $s['id'] ? 'selected' : '' ?>>
-                <?= e($s['sigla']) ?> &mdash; <?= e($s['nome']) ?>
+                <?= e($s['sigla']) ?> &middot; <?= e($s['nome']) ?>
               </option>
             <?php endforeach; ?>
           </select>

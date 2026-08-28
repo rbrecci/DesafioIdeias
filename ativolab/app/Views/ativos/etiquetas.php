@@ -33,7 +33,7 @@ $org = (string) Config::get('app_nome', 'AtivoLab');
 
     <div id="avisoQr" class="alert alert-danger d-none">
       Nao foi possivel carregar a biblioteca de QR. Verifique a conexao e recarregue a pagina
-      antes de imprimir &mdash; as etiquetas sairiam em branco.
+      antes de imprimir, ou as etiquetas sairiam em branco.
     </div>
 
     <form method="get" action="<?= url('/etiquetas') ?>" class="row g-2 align-items-end">
@@ -85,7 +85,7 @@ $org = (string) Config::get('app_nome', 'AtivoLab');
     <p class="small text-body-secondary mt-3 mb-0">
       <i class="bi bi-info-circle me-1"></i>
       Imprima em papel adesivo A4. Nas opcoes de impressao, desative
-      &ldquo;ajustar a pagina&rdquo; e mantenha a escala em 100% &mdash; o QR precisa sair no tamanho fisico correto.
+      &ldquo;ajustar a pagina&rdquo; e mantenha a escala em 100%: o QR precisa sair no tamanho fisico correto.
     </p>
   </div>
 </div>

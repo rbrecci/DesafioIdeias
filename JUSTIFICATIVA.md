@@ -1,14 +1,14 @@
 # Justificativa da Demanda Escolhida
 
-**Desafio de Ideias — SAGA SENAI de Inovação**
+**Desafio de Ideias | SAGA SENAI de Inovação**
 
 | | |
 |---|---|
-| Product Owner | _______________________ |
-| Grupo | _______________________ |
-| Turma | _______________________ |
-| Data | ____ / ____ / __________ |
-| Demanda | nº 12569 — Gestão de Laboratórios e Ativos |
+| Product Owner | Rafael Brecci de Souza |
+| Grupo | Enzo Avanze, Felipe Bertaco, Vitor Canali, João Pedro, Nicolas Fernandes e Julia Possebon |
+| Turma | 2IEDS |
+| Data | 28/06/2026 |
+| Demanda | nº 12569, Gestão de Laboratórios e Ativos |
 | Empresa | W K Soluções Industriais |
 | Escola | (SP) 6.02 Escola SENAI Engº Octávio Marcondes Ferraz |
 
@@ -16,9 +16,9 @@
 
 O grupo escolheu a demanda Gestão de Laboratórios e Ativos (nº 12569), da empresa W K Soluções
 Industriais. A empresa controla seus equipamentos e ordens de serviço por anotações físicas e
-registros manuais — processo lento e sujeito a erro, perda de dados e falta de padronização. Não
-se sabe com rapidez onde está um equipamento, qual seu histórico de manutenção ou qual o setor
-responsável, e os colaboradores relatam divergências entre documentos.
+registros manuais, um processo lento e sujeito a erro, perda de dados e falta de padronização.
+Não se sabe com rapidez onde está um equipamento, qual seu histórico de manutenção ou qual o
+setor responsável, e os colaboradores relatam divergências entre documentos.
 
 A escolha não partiu de preferência do grupo. Analisamos as 34 demandas de Tecnologia da
 Informação abertas em São Paulo, avaliando viabilidade de entrega no semestre e valor técnico.
@@ -38,5 +38,5 @@ processo informal em regras explícitas.
 Como ideia inicial, propomos um sistema web com etiqueta QR em cada equipamento: apontar a câmera
 do celular abre a ficha do ativo, e movimentá-lo entre setores passa a ser escanear a etiqueta e
 indicar o destino. O histórico ficará em registro permanente, no qual nada é editado ou apagado,
-apenas acrescentado — é o que garante a rastreabilidade solicitada. O sistema contemplará também
-as ordens de serviço.
+apenas acrescentado, e é isso que garante a rastreabilidade solicitada. O sistema contemplará
+também as ordens de serviço.

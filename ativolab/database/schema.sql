@@ -1,4 +1,4 @@
--- AtivoLab — esquema do banco (MySQL 8 / MariaDB 10.4+)
+-- AtivoLab: esquema do banco (MySQL 8 / MariaDB 10.4+)
 -- Importe pelo phpMyAdmin do InfinityFree.
 -- Sem CREATE DATABASE: no InfinityFree o banco ja vem criado pelo painel.
 

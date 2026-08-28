@@ -1,4 +1,4 @@
--- AtivoLab — dados iniciais. Rode depois do schema.sql.
+-- AtivoLab: dados iniciais. Rode depois do schema.sql.
 -- Usuario admin: admin@ativolab.local / senha: ativolab123
 -- TROQUE ESSA SENHA no primeiro acesso.
 

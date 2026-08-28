@@ -114,7 +114,7 @@ $ativoEm = static fn (string $p): string => str_starts_with($rota, rtrim(url($p)
   <hr class="text-body-secondary">
   <p class="small text-body-secondary mb-0">
     <?= e(Config::get('app_nome', 'AtivoLab')) ?> &middot;
-    Projeto Integrador &middot; demanda 12569 &mdash; Gestao de Laboratorios e Ativos
+    Projeto Integrador &middot; demanda 12569 &middot; Gestao de Laboratorios e Ativos
   </p>
 </footer>
 

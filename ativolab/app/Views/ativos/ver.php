@@ -159,7 +159,7 @@ $podeEditar = Auth::ehPapel('admin', 'gestor');
                 <?php foreach ($setores as $st) : ?>
                   <option value="<?= (int) $st['id'] ?>"
                     <?= (string) ($ativo['setor_id'] ?? '') === (string) $st['id'] ? 'selected' : '' ?>>
-                    <?= e($st['sigla']) ?> &mdash; <?= e($st['nome']) ?>
+                    <?= e($st['sigla']) ?> &middot; <?= e($st['nome']) ?>
                   </option>
                 <?php endforeach; ?>
               </select>
@@ -233,7 +233,7 @@ $podeEditar = Auth::ehPapel('admin', 'gestor');
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
         <div class="modal-body">
-          <p class="mb-1">Excluir <code><?= e($ativo['patrimonio']) ?></code> &mdash; <?= e($ativo['nome']) ?>?</p>
+          <p class="mb-1">Excluir <code><?= e($ativo['patrimonio']) ?></code>, <?= e($ativo['nome']) ?>?</p>
           <p class="small text-body-secondary mb-0">
             O historico de movimentacao deste ativo tambem sera removido. A trilha de auditoria permanece.
           </p>

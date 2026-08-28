@@ -7,12 +7,12 @@ O repositório tem duas partes: a **pesquisa** que selecionou a demanda e o **si
 ```
 DesafioIdeias/
 ├── docs/            pesquisa: rankings das demandas e propostas de solução
-└── ativolab/        AtivoLab — o sistema, em PHP puro + MySQL
+└── ativolab/        AtivoLab, o sistema em PHP puro + MySQL
 ```
 
 ---
 
-## docs — a pesquisa
+## docs: a pesquisa
 
 Páginas estáticas, abrem com duplo clique no navegador.
 
@@ -26,9 +26,9 @@ Fonte: plataforma SAGA SENAI de Inovação, filtro Área = Tecnologia da Informa
 
 ---
 
-## AtivoLab — o sistema
+## AtivoLab: o sistema
 
-Implementa a **demanda 12569 — Gestão de Laboratórios e Ativos** (W K Soluções Industriais,
+Implementa a **demanda 12569, Gestão de Laboratórios e Ativos** (W K Soluções Industriais,
 Escola SENAI Engº Octávio Marcondes Ferraz).
 
 > O controle de equipamentos e ordens de serviço vive em anotações físicas, e ninguém consegue
@@ -67,36 +67,36 @@ arquivos locais em `assets/`.
 ### Regra de negócio principal
 
 Ativo com status **Em manutenção** ou **Baixado** não circula entre setores. A regra mora em
-`Movimentacao::mover()`, não na tela — qualquer caminho que chame o método a respeita.
+`Movimentacao::mover()`, não na tela, e qualquer caminho que chame o método a respeita.
 
 ---
 
 ## Deploy no InfinityFree
 
-### Passo 0 — SSL, antes de tudo
+### Passo 0: SSL, antes de tudo
 
 A câmera do navegador só funciona em contexto seguro. Sem certificado, o leitor de QR não
 funciona no celular e o sistema perde a razão de ser. Instale o SSL pelo painel, aguarde a
 emissão e **confirme que o site abre em `https://` antes de continuar**.
 
-### Passo 1 — Banco de dados
+### Passo 1: banco de dados
 
 No painel, em *MySQL Databases*, crie o banco e anote host, nome, usuário e senha.
 
-### Passo 2 — Tabelas
+### Passo 2: tabelas
 
 Abra o **phpMyAdmin** pelo painel, selecione o banco na coluna da esquerda e use a aba
 *Importar*, nesta ordem:
 
-1. `ativolab/database/schema.sql` — cria as 6 tabelas
-2. `ativolab/database/seed.sql` — cria o usuário admin e dados de exemplo
+1. `ativolab/database/schema.sql` cria as 6 tabelas
+2. `ativolab/database/seed.sql` cria o usuário admin e dados de exemplo
 
 A ordem importa: o `seed` depende das tabelas que o `schema` cria.
 
 Confira ao final: devem existir `setores`, `categorias`, `usuarios`, `ativos`,
 `movimentacoes` e `auditoria`, com 10 ativos cadastrados.
 
-### Passo 3 — Configuração
+### Passo 3: configuração
 
 Copie `ativolab/config/config.example.php` para `ativolab/config/config.php` e preencha com os
 dados do passo 1. Mantenha `debug` em `false` e `base_url` em `''`.
@@ -104,10 +104,10 @@ dados do passo 1. Mantenha `debug` em `false` e `base_url` em `''`.
 > **Este arquivo não está no repositório.** Ele tem a senha do banco e está no `.gitignore`.
 > Quem clonar o projeto precisa criá-lo a partir do `.example`.
 
-### Passo 4 — Enviar os arquivos
+### Passo 4: enviar os arquivos
 
 Por FTP (FileZilla, com as credenciais em *FTP Accounts* no painel), envie **o conteúdo de
-`ativolab/`** para dentro de `htdocs/` — não a pasta `ativolab` inteira. O `index.php` precisa
+`ativolab/`** para dentro de `htdocs/`, e não a pasta `ativolab` inteira. O `index.php` precisa
 ficar na raiz do site.
 
 Apague o `index2.html` que o InfinityFree deixa em `htdocs/`, senão ele disputa com o nosso
@@ -132,7 +132,7 @@ htdocs/
     └── uploads/ + .htaccess
 ```
 
-### Passo 5 — Testar
+### Passo 5: testar
 
 Abra o site. Deve aparecer a tela de login. Entre com `admin@ativolab.local` e `ativolab123`.
 
@@ -142,9 +142,9 @@ Checklist rápido:
 - [ ] Lista de ativos abre e o filtro por status funciona
 - [ ] Ficha de um ativo mostra o QR desenhado
 - [ ] `/etiquetas` monta a folha A4
-- [ ] `/scanner` abre a câmera no celular — **o teste que importa**
+- [ ] `/scanner` abre a câmera no celular, **o teste que importa**
 
-### Passo 6 — Trocar a senha do admin
+### Passo 6: trocar a senha do admin
 
 O `seed.sql` traz uma senha conhecida, publicada neste README. Gere um hash novo e atualize o
 registro pelo phpMyAdmin antes de colocar qualquer dado real:
@@ -160,7 +160,7 @@ UPDATE usuarios SET senha_hash = 'COLE_O_HASH_AQUI' WHERE email = 'admin@ativola
 ### Se algo der errado
 
 Abra o `config.php` no servidor, mude `debug` para `true`, recarregue a página e leia a
-mensagem de erro real. **Volte para `false` assim que resolver** — com `true` o sistema mostra
+mensagem de erro real. **Volte para `false` assim que resolver**, porque com `true` o sistema mostra
 caminhos de arquivo e detalhes do banco para qualquer visitante.
 
 | Sintoma | Causa provável |
@@ -171,19 +171,6 @@ caminhos de arquivo e detalhes do banco para qualquer visitante.
 | "Nao foi possivel conectar" | Dados do banco errados no `config.php` |
 | Câmera não abre | Site sendo acessado por `http://` em vez de `https://` |
 | Fotos não carregam | O `.htaccess` de `storage/uploads/` não subiu |
-
-### Troque a senha do admin
-
-O `seed.sql` traz uma senha conhecida, publicada aqui neste README. Gere um hash novo e atualize
-o registro antes de colocar qualquer dado real no sistema:
-
-```bash
-php -r "echo password_hash('SUA_NOVA_SENHA', PASSWORD_BCRYPT, ['cost' => 12]), PHP_EOL;"
-```
-
-```sql
-UPDATE usuarios SET senha_hash = 'COLE_O_HASH_AQUI' WHERE email = 'admin@ativolab.local';
-```
 
 ---
 
@@ -259,7 +246,7 @@ MySQL 8 real, com o `schema.sql` e o `seed.sql` deste repositório:
 | Trilha de auditoria | eventos de login, criação e movimentação gravados |
 | Roteamento | 13 rotas, incluindo `/ativos/novo` sem colidir com `/ativos/{id}` |
 
-**Ainda não verificado:** o teste que só existe no mundo físico — imprimir uma etiqueta e ler
+**Ainda não verificado:** o teste que só existe no mundo físico, que é imprimir uma etiqueta e ler
 com a câmera de um celular de verdade, a 15 cm, conferindo contraste e tamanho mínimo do código.
 E o comportamento no ambiente do InfinityFree em si, que só o primeiro deploy revela.
 
