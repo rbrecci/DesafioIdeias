@@ -154,15 +154,28 @@ O que o Laravel entregaria pronto e aqui está escrito à mão:
 
 ## Estado da verificação
 
-Todos os 35 arquivos PHP passam em `php -l`. O núcleo foi testado com o servidor embutido:
-roteamento (incluindo rotas com parâmetro), renderização das views, sessão, redirecionamento
-de rota protegida, página 404, e o CSRF bloqueando POST sem token com 419 e liberando com token
-válido.
+Todos os 35 arquivos PHP passam em `php -l`. O sistema foi exercitado end-to-end contra um
+MySQL 8 real, com o `schema.sql` e o `seed.sql` deste repositório:
 
-**Ainda não verificado end-to-end:** tudo que depende do banco — CRUD, movimentação, painel e
-geração das etiquetas com dados reais. Falta também o teste que só existe no mundo físico:
-imprimir uma etiqueta e ler com a câmera de um celular de verdade, a 15 cm, para conferir
-contraste e tamanho mínimo do código.
+| Fluxo | Resultado |
+|---|---|
+| Login com a senha do seed | 302 para o painel |
+| Rota protegida sem sessão | 302 para `/login` |
+| CSRF: POST sem token / com token | 419 / passa |
+| Painel com dados reais | 10 ativos, R$ 28.150,00, 1 em manutenção |
+| Lista, busca e filtro por status | 10 linhas, busca e filtro retornam o esperado |
+| Criar ativo | criado, redireciona para a ficha |
+| Patrimônio duplicado | recusado com mensagem |
+| Movimentação de ativo disponível | setor e local atualizados, evento no histórico |
+| Movimentação de ativo em manutenção | form escondido na tela **e** POST forçado recusado pelo model |
+| Folha de etiquetas | 11 etiquetas na grade A4 |
+| Excluir setor com ativos vinculados | bloqueado com mensagem |
+| Trilha de auditoria | eventos de login, criação e movimentação gravados |
+| Roteamento | 13 rotas, incluindo `/ativos/novo` sem colidir com `/ativos/{id}` |
+
+**Ainda não verificado:** o teste que só existe no mundo físico — imprimir uma etiqueta e ler
+com a câmera de um celular de verdade, a 15 cm, conferindo contraste e tamanho mínimo do código.
+E o comportamento no ambiente do InfinityFree em si, que só o primeiro deploy revela.
 
 ---
 

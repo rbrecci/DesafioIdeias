@@ -1,6 +1,29 @@
 # Uploads: servir imagem, jamais executar codigo.
-php_flag engine off
-Options -ExecCGI -Indexes
-<FilesMatch "\.(php|phtml|php3|php4|php5|php7|php8|pht|phar)$">
-  Require all denied
+#
+# php_flag so existe quando o PHP roda como modulo do Apache. Em hospedagem
+# com PHP em CGI/FastCGI - o caso do InfinityFree - a diretiva sem guarda
+# devolve 500 e derruba as fotos. O guarda <IfModule> resolve.
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php5.c>
+  php_flag engine off
+</IfModule>
+
+# Defesa que funciona em qualquer configuracao: negar o proprio arquivo.
+<FilesMatch "\.(php|phtml|php3|php4|php5|php6|php7|php8|pht|phar|cgi|pl|py|sh)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
 </FilesMatch>
+
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
