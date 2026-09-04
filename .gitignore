@@ -15,3 +15,6 @@ Desktop.ini
 
 # Logs
 *.log
+
+# cache do Python usado no preparo das imagens
+__pycache__/

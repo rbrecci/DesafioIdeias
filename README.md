@@ -21,6 +21,10 @@ Páginas estáticas, abrem com duplo clique no navegador.
 | `docs/index.html` | As 34 demandas de TI em SP, com dois rankings: mais fáceis e mais interessantes |
 | `docs/propostas.html` | Propostas técnicas para as três demandas mais fáceis |
 | `docs/demandas.json` | A base bruta das 34 demandas |
+| `docs/persona-mapa-empatia.md` | A persona e o mapa de empatia, para transcrição nos templates impressos |
+| `docs/Documentacao-ABNT-Empatia.docx` | A entrega em norma ABNT: Empatia, Definição e Ideação |
+| `docs/gerar-abnt.js` | Gerador do arquivo acima, para regerar o documento quando o texto mudar |
+| `docs/imagens/` | Fotografias dos templates preenchidos, com o `preparar.py` que recorta e gira |
 
 Fonte: plataforma SAGA SENAI de Inovação, filtro Área = Tecnologia da Informação e Estado = SP, coletado em 28/08/2026.
 

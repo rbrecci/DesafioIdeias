@@ -98,19 +98,24 @@ O Design Thinking segue o **Duplo Diamante**: abre para explorar, fecha para dec
      ◇ ─────────────── ◆ ─────────────── ◇ ─────────────── ◆
   entender o        definir o        gerar muitas      construir e
    usuário           problema           ideias            testar
-     ▲
- ESTAMOS AQUI
+                                          ▲
+                                    ESTAMOS AQUI
 ```
 
 | Etapa | Ferramenta | Situação |
 |---|---|---|
 | Empatia | **Persona** | ✅ definida (abaixo) |
 | Empatia | **Mapa de Empatia** | ✅ montado (abaixo) |
-| Empatia | Entrevista Exploratória com a empresa | ⏳ próximo |
-| Definição | Matriz CSD (Certezas · Suposições · Dúvidas) | ⏳ |
-| Ideação | Brainstorming + Matriz de Prioridade + votação | ⏳ |
+| Definição | **Matriz CSD** | ✅ 5 certezas, 5 suposições, 5 dúvidas |
+| Ideação | **Matriz de Prioridade** | ✅ 12 ideias posicionadas |
+| Empatia | Entrevista Exploratória com a empresa | ⏳ próximo, para resolver as 5 dúvidas |
 | Prototipação | AtivoLab | 🔨 já em andamento |
 | Pitch | 10 passos, 7 minutos | ⏳ |
+
+A matriz de prioridade confirmou o rumo: as três ideias de **maior valor e menor
+complexidade** (ficha pelo QR, cadastro com busca, folha de etiquetas A4) já estão prontas,
+e das três de maior valor e maior complexidade só falta a **ordem de serviço**. O quadrante
+descartado reúne aplicativo nativo, RFID e integração com ERP.
 
 > Sim, o sistema começou antes da ideação formal. Isso é normal aqui: os requisitos vieram
 > prontos da empresa. As ferramentas de empatia servem para **validar** se acertamos o alvo,
@@ -166,6 +171,12 @@ templates do SENAI · **foto do grupo** com os dois templates prontos.
 
 **Documentação em padrão ABNT.**
 
+Situação: o documento ABNT está em `docs/Documentacao-ABNT-Empatia.docx` e cobre as três
+etapas percorridas, com quatro quadros de transcrição e cinco figuras (os quatro templates
+preenchidos mais o registro da equipe, este último no Apêndice A). As fotografias entram pelo
+gerador: basta colocar os arquivos em `docs/imagens/bruto/`, rodar `preparar.py` para recortar
+e girar, e regerar o `.docx`.
+
 ---
 
 ## 10. Três armadilhas para evitar
@@ -188,11 +199,17 @@ resolvido?* Fale de tempo economizado e de informação confiável. A stack é d
 
 ## 11. Próximos passos
 
-1. Preencher os dois templates à mão e fotografar ✍️
-2. Montar o roteiro da **entrevista exploratória** com a W K (perguntas abertas, sem "sim/não")
-3. Entrevistar e preencher a **Matriz CSD**
-4. Brainstorming → Matriz de Prioridade → votação
-5. Fechar o protótipo (ordens de serviço é o que falta) e treinar o pitch
+1. ~~Preencher os templates à mão e fotografar~~ ✅
+2. ~~Matriz CSD~~ ✅ · ~~Matriz de Prioridade~~ ✅
+3. Montar o roteiro da **entrevista exploratória** com a W K, partindo das 5 dúvidas da CSD
+   (perguntas abertas, sem "sim/não")
+4. Entrevistar e revisar a CSD com as respostas, movendo suposições para certezas
+5. Implementar a **ordem de serviço**, único item de maior valor que falta
+6. Treinar o pitch
+
+As três suposições mais perigosas da CSD não dependem do grupo e derrubam o projeto se
+estiverem erradas: a etiqueta aguentar óleo e calor, haver sinal no chão de fábrica, e o
+celular ser liberado na área. Elas precisam virar pergunta na entrevista.
 
 ---
 
@@ -203,6 +220,9 @@ resolvido?* Fale de tempo economizado e de informação confiável. A stack é d
 | `EXPLICACAO.md` | Este documento, a visão geral |
 | `JUSTIFICATIVA.md` | Por que escolhemos a demanda 12569 |
 | `README.md` | O sistema: stack, deploy, segurança, o que já funciona |
+| `docs/Documentacao-ABNT-Empatia.docx` | **A entrega para o professor**, em norma ABNT |
+| `docs/persona-mapa-empatia.md` | Persona e mapa de empatia para transcrever à mão nos templates |
+| `docs/gerar-abnt.js` | Gerador do `.docx`, para regerar quando o texto mudar |
 | `docs/index.html` | As 34 demandas de TI analisadas, com ranking |
 | `docs/propostas.html` | Propostas técnicas para as 3 demandas finalistas |
 | `docs/Entregavel.txt` | O que precisa ser entregue |
