@@ -171,8 +171,8 @@ caminhos de arquivo e detalhes do banco para qualquer visitante.
 |---|---|
 | Erro 500 em tudo | Faltou enviar algum `.htaccess`, ou o `config.php` não existe |
 | Só a home abre, o resto dá 404 | O `.htaccess` da raiz não subiu |
-| "Configuracao ausente" | Falta `config/config.php` |
-| "Nao foi possivel conectar" | Dados do banco errados no `config.php` |
+| "Configuração ausente" | Falta `config/config.php` |
+| "Não foi possível conectar" | Dados do banco errados no `config.php` |
 | Câmera não abre | Site sendo acessado por `http://` em vez de `https://` |
 | Fotos não carregam | O `.htaccess` de `storage/uploads/` não subiu |
 
