@@ -18,3 +18,6 @@ Desktop.ini
 
 # cache do Python usado no preparo das imagens
 __pycache__/
+
+# dependencias do gerador do .docx (instalar com: cd docs && npm install)
+node_modules/
