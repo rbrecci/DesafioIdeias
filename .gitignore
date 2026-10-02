@@ -21,3 +21,6 @@ __pycache__/
 
 # dependencias do gerador do .docx (instalar com: cd docs && npm install)
 node_modules/
+
+# configuracao local do Claude Code (permissoes desta maquina)
+.claude/settings.local.json
