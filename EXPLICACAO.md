@@ -40,7 +40,8 @@ A banca avalia cinco critérios: **Inovação · Satisfação · Viabilidade · 
 ## 3. Por que escolhemos esta demanda
 
 Não foi por gosto. Levantamos as **34 demandas de TI abertas em São Paulo** e pontuamos cada uma
-por facilidade de entrega e valor técnico (a base está em `docs/index.html`).
+por facilidade de entrega e valor técnico. Essa pesquisa cumpriu seu papel ao eleger a
+demanda e saiu do repositório; o resultado dela está no `JUSTIFICATIVA.md`.
 
 A 12569 ganhou por três motivos objetivos:
 
@@ -85,7 +86,8 @@ propriedade da estrutura de dados, e não uma promessa na documentação.
 
 **Estado atual:** login com 3 papéis (admin/gestor/técnico), CRUD de ativos, etiquetas A4 com QR,
 leitor pela câmera, movimentação com histórico, trilha de auditoria e painel. Testado ponta a
-ponta contra um MySQL real. Detalhes técnicos e deploy estão no `README.md`.
+ponta contra um MySQL real. O código, os detalhes técnicos e o deploy estão na branch
+`ativolab`.
 
 ---
 
@@ -201,9 +203,9 @@ resolvido?* Fale de tempo economizado e de informação confiável. A stack é d
 
 1. ~~Preencher os templates à mão e fotografar~~ ✅
 2. ~~Matriz CSD~~ ✅ · ~~Matriz de Prioridade~~ ✅
-3. Montar o roteiro da **entrevista exploratória** com a W K, partindo das 5 dúvidas da CSD
-   (perguntas abertas, sem "sim/não")
-4. Entrevistar e revisar a CSD com as respostas, movendo suposições para certezas
+3. ~~Montar o roteiro da **entrevista exploratória** com a W K, partindo das 5 dúvidas da CSD~~ ✅
+   29 perguntas abertas em `docs/06 - Roteiro_Entrevista_GR4_Essencial.pdf`
+4. Entrevistar a W K e revisar a CSD com as respostas, movendo suposições para certezas
 5. Implementar a **ordem de serviço**, único item de maior valor que falta
 6. Treinar o pitch
 
@@ -219,16 +221,14 @@ celular ser liberado na área. Elas precisam virar pergunta na entrevista.
 |---|---|
 | `EXPLICACAO.md` | Este documento, a visão geral |
 | `JUSTIFICATIVA.md` | Por que escolhemos a demanda 12569 |
-| `README.md` | O sistema: stack, deploy, segurança, o que já funciona |
+| `README.md` | A documentação do desafio: problema, solução e prototipagem |
 | `docs/Documentacao-ABNT-Empatia.docx` | **A entrega para o professor**, em norma ABNT |
 | `docs/persona-mapa-empatia.md` | Persona e mapa de empatia para transcrever à mão nos templates |
 | `docs/gerar-abnt.js` | Gerador do `.docx`, para regerar quando o texto mudar |
-| `docs/index.html` | As 34 demandas de TI analisadas, com ranking |
-| `docs/propostas.html` | Propostas técnicas para as 3 demandas finalistas |
 | `docs/Entregavel.txt` | O que precisa ser entregue |
 | `docs/*.jpeg` | Os templates em branco (Persona e Mapa de Empatia) |
 | `docs/CAPACITAÇÃO...pdf` | Material oficial do workshop |
-| `ativolab/` | O sistema AtivoLab |
+| branch `ativolab` | O código do protótipo AtivoLab, com stack, deploy e segurança |
 
 ---
 
