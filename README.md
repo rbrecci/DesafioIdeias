@@ -63,9 +63,12 @@ sem sair de perto da máquina.**
 |---|---|---|
 | Empatia | Persona | ✅ definida |
 | Empatia | Mapa de Empatia | ✅ montado |
-| Empatia | Entrevista Exploratória | ⏳ roteiro pronto, aguardando a W K |
+| Empatia | Entrevista Exploratória | ⏳ roteiro, termo e ata prontos, aguardando a W K |
 | Definição | Matriz CSD | ✅ 5 certezas, 5 suposições, 5 dúvidas (a revisar após a entrevista) |
+| Definição | Registro de riscos | ✅ 10 riscos, com resposta planejada para cada um |
+| Ideação | Brainstorming e diagrama de afinidade | ✅ 12 ideias em 4 grupos de afinidade |
 | Ideação | Matriz de Prioridade | ✅ 12 ideias posicionadas |
+| Ideação | Decisão sobre as ideias | ✅ por consenso sobre a matriz, com justificativa por ideia |
 | Prototipação | AtivoLab (branch `ativolab`) | 🔨 em andamento |
 | Pitch | 10 passos, 7 minutos | ⏳ |
 
@@ -110,6 +113,9 @@ git switch ativolab
 | `docs/06 - Roteiro_Entrevista_GR4_Essencial.pdf` | Roteiro da entrevista exploratória com a W K: 29 perguntas em 60 minutos |
 | `docs/07 - Roteiro_Entrevista_GR4_Respostas_Esperadas.pdf` | O mesmo roteiro com as respostas que o grupo espera, para comparar depois |
 | `docs/gerar-entrevista.py`, `docs/gerar-entrevista-respostas.py` | Geradores dos dois PDFs acima |
+| `docs/08 - Ata_e_Autorizacao_Entrevista_GR4.pdf` | Termo de autorização de registro e ata da entrevista, para levar impressos |
+| `docs/09 - Rubrica_e_Autoavaliacao_GR4.pdf` | Rubrica da Etapa 1, inventário de evidências e fichas de autoavaliação |
+| `docs/gerar-ata.py`, `docs/gerar-rubrica.py` | Geradores dos dois PDFs acima |
 | `docs/persona-mapa-empatia.md` | Persona e mapa de empatia, para transcrição nos templates impressos |
 | `docs/gerar-abnt.js` | Gerador do `.docx` acima, para regerar quando o texto mudar |
 | `docs/imagens/` | Fotografias dos templates preenchidos, com o `preparar.py` que recorta e gira |
